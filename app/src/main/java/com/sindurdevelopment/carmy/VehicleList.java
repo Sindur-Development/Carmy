@@ -1,73 +1,27 @@
 package com.sindurdevelopment.carmy;
 
-import org.json.*;
-import java.io.*;
+import com.google.gson.Gson;
+
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 
-public class VehicleList {
-    private static HttpURLConnection conn = null;
-    private String accessToken;
-    private final static String vccApiKey = "607a267caccf4cdda65179f588772043";
-    private final static URL url;
-
-    static {
-        try {
-            url = new URL("https://api.volvocars.com/connected-vehicle/v1/vehicles");
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private String responseMessage;
-    private int responsecode;
+public class VehicleList extends VehicleFunction implements HttpRequest {
     private List<String> vinNumbers;
-    public VehicleList(String accessToken) throws JSONException {
-        this.accessToken = accessToken;
+
+    private URL url = new URL("https://api.volvocars.com/connected-vehicle/v1/vehicles");
+
+
+    public VehicleList(VehicleFunction vehicleFunction) throws MalformedURLException {
+        Gson gson = new Gson();
         vinNumbers = new ArrayList<>(1);
-        try {
-            conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestProperty("vcc-api-key", vccApiKey);
-            conn.setRequestProperty("authorization", "Bearer " + accessToken);
-            responsecode = conn.getResponseCode();
-            responseMessage = conn.getResponseMessage();
-        } catch(Exception e) {
-            System.out.println("Fel37: " + e);
-        }
+        Map vin = gson.fromJson(vehicleFunction.httpRequest(url).get("data").toString(), Map.class);
+        vinNumbers.add(vin.get("vin").toString());
 
-        try {
-            final BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(getResponsecode() == 200 ? conn.getInputStream() : conn.getErrorStream()));
-            JSONObject obj = null;
-            String line = null; //ta bort senare
-            String multipleLine="";
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);//ta bort senare
-                multipleLine += line;
-            }
-            obj = new JSONObject(multipleLine);
-            vinNumbers.add(new JSONObject(obj.getJSONArray("data").getString(0)).getString("vin"));
-            System.out.println(vinNumbers.toString());
-            reader.close();
-        } catch (Exception e) {
-            System.out.println("Fel54: " + e);
-        } finally {
-            conn.disconnect();
-        }
-
-    }
-
-    public String getResponseMessage() {
-        return responseMessage;
-    }
-
-    public int getResponsecode() {
-        return responsecode;
     }
 
     public List<String> getVinNumbers() {

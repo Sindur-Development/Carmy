@@ -1,4 +1,4 @@
 package com.sindurdevelopment.carmy;
 
-public class LockFunction extends VehicleFunctions{
+public class LockFunction extends VehicleFunction {
 }
