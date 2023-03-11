@@ -1,6 +1,7 @@
 package com.sindurdevelopment.carmy;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -13,15 +14,16 @@ import java.util.Map;
 public class VehicleList extends VehicleFunction implements HttpRequest {
     private List<String> vinNumbers;
 
-    private URL url = new URL("https://api.volvocars.com/connected-vehicle/v1/vehicles");
+    private URL url;
 
 
     public VehicleList(VehicleFunction vehicleFunction) throws MalformedURLException {
+        url = new URL("https://api.volvocars.com/connected-vehicle/v1/vehicles");
         Gson gson = new Gson();
         vinNumbers = new ArrayList<>(1);
-        Map vin = gson.fromJson(vehicleFunction.httpRequest(url).get("data").toString(), Map.class);
-        vinNumbers.add(vin.get("vin").toString());
-
+        LinkedTreeMap httpResponse = vehicleFunction.httpRequest(url);
+        ArrayList<LinkedTreeMap> responseData = (ArrayList<LinkedTreeMap>) httpResponse.get("data");
+        vinNumbers.add((String) responseData.get(0).get("vin"));
     }
 
     public List<String> getVinNumbers() {

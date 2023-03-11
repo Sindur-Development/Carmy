@@ -1,6 +1,7 @@
 package com.sindurdevelopment.carmy;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 
 import org.json.JSONObject;
 
@@ -15,15 +16,26 @@ public class VehicleFunction {
 
     private final static String vccApiKey = "607a267caccf4cdda65179f588772043";
     private static String accessToken;
-    private HttpURLConnection conn;
+    private static HttpURLConnection conn;
 
+    private String currentVIN;
     private VehicleList vehicleList;
+
+    private Temperature temperature;
+
+    public Temperature temperature() {
+        return temperature;
+    }
+
+
 
     public VehicleFunction(){}
 
     public VehicleFunction(String accessToken) throws MalformedURLException {
         this.accessToken = accessToken;
         vehicleList = new VehicleList(this);
+        currentVIN = vehicleList.getVinNumbers().get(0);
+        temperature = new Temperature(currentVIN);
     }
 
     public VehicleList vehicleList() {
@@ -34,9 +46,9 @@ public class VehicleFunction {
         return accessToken;
     }
 
-    public Map httpRequest(URL url){
+    public static LinkedTreeMap httpRequest(URL url){
         Gson gson = new Gson();
-        Map jsonResponse = null;
+        LinkedTreeMap jsonResponse = null;
         JSONObject obj = null;
 
         try {
@@ -56,7 +68,7 @@ public class VehicleFunction {
                 multipleLine += line;
             }
             obj = new JSONObject(multipleLine);
-            jsonResponse = gson.fromJson(multipleLine,Map.class);
+            jsonResponse = gson.fromJson(multipleLine,LinkedTreeMap.class);
             jsonResponse.forEach((key,value)-> System.out.println(key + ":" + value));
             reader.close();
         } catch (Exception e) {
