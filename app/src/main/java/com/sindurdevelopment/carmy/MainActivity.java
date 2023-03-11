@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     System.out.println(vehicleManager.getVehicleInformation());
                 } catch (Exception e) {
-                    System.out.println("Fel30 (skapa vehicleList): " + e);
+                    System.out.println("Fel56 (Vehicle information): " + e);
                 }
             }
         });
