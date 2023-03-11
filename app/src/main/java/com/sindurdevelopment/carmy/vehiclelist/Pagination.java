@@ -1,5 +1,5 @@
 
-package com.sindurdevelopment.carmy.jsonconversion;
+package com.sindurdevelopment.carmy.vehiclelist;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,50 +13,37 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "value",
-    "unit",
-    "timestamp"
+    "limit",
+    "total"
 })
 @Generated("jsonschema2pojo")
-public class EngineCoolantTemp {
+public class Pagination {
 
-    @JsonProperty("value")
-    private String value;
-    @JsonProperty("unit")
-    private String unit;
-    @JsonProperty("timestamp")
-    private String timestamp;
+    @JsonProperty("limit")
+    private Integer limit;
+    @JsonProperty("total")
+    private Integer total;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
-    @JsonProperty("value")
-    public String getValue() {
-        return value;
+    @JsonProperty("limit")
+    public Integer getLimit() {
+        return limit;
     }
 
-    @JsonProperty("value")
-    public void setValue(String value) {
-        this.value = value;
+    @JsonProperty("limit")
+    public void setLimit(Integer limit) {
+        this.limit = limit;
     }
 
-    @JsonProperty("unit")
-    public String getUnit() {
-        return unit;
+    @JsonProperty("total")
+    public Integer getTotal() {
+        return total;
     }
 
-    @JsonProperty("unit")
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    @JsonProperty("timestamp")
-    public String getTimestamp() {
-        return timestamp;
-    }
-
-    @JsonProperty("timestamp")
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    @JsonProperty("total")
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
     @JsonAnyGetter

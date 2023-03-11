@@ -1,5 +1,5 @@
 
-package com.sindurdevelopment.carmy.jsonconversion;
+package com.sindurdevelopment.carmy.enginediagnostic;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,13 +14,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "value",
+    "unit",
     "timestamp"
 })
 @Generated("jsonschema2pojo")
-public class EngineCoolantLevel {
+public class EngineCoolantTemp {
 
     @JsonProperty("value")
     private String value;
+    @JsonProperty("unit")
+    private String unit;
     @JsonProperty("timestamp")
     private String timestamp;
     @JsonIgnore
@@ -34,6 +37,16 @@ public class EngineCoolantLevel {
     @JsonProperty("value")
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @JsonProperty("unit")
+    public String getUnit() {
+        return unit;
+    }
+
+    @JsonProperty("unit")
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     @JsonProperty("timestamp")

@@ -1,5 +1,5 @@
 
-package com.sindurdevelopment.carmy.jsonconversion;
+package com.sindurdevelopment.carmy.enginediagnostic;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,50 +13,37 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "status",
-    "operationId",
-    "data"
+    "value",
+    "timestamp"
 })
 @Generated("jsonschema2pojo")
-public class Response {
+public class EngineCoolantLevel {
 
-    @JsonProperty("status")
-    private Integer status;
-    @JsonProperty("operationId")
-    private String operationId;
-    @JsonProperty("data")
-    private Data data;
+    @JsonProperty("value")
+    private String value;
+    @JsonProperty("timestamp")
+    private String timestamp;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
-    @JsonProperty("status")
-    public Integer getStatus() {
-        return status;
+    @JsonProperty("value")
+    public String getValue() {
+        return value;
     }
 
-    @JsonProperty("status")
-    public void setStatus(Integer status) {
-        this.status = status;
+    @JsonProperty("value")
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    @JsonProperty("operationId")
-    public String getOperationId() {
-        return operationId;
+    @JsonProperty("timestamp")
+    public String getTimestamp() {
+        return timestamp;
     }
 
-    @JsonProperty("operationId")
-    public void setOperationId(String operationId) {
-        this.operationId = operationId;
-    }
-
-    @JsonProperty("data")
-    public Data getData() {
-        return data;
-    }
-
-    @JsonProperty("data")
-    public void setData(Data data) {
-        this.data = data;
+    @JsonProperty("timestamp")
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
     @JsonAnyGetter

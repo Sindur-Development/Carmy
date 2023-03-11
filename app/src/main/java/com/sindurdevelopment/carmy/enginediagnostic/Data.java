@@ -1,5 +1,5 @@
 
-package com.sindurdevelopment.carmy.jsonconversion;
+package com.sindurdevelopment.carmy.enginediagnostic;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

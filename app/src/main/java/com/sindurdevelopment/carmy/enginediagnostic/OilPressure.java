@@ -1,5 +1,5 @@
 
-package com.sindurdevelopment.carmy.jsonconversion;
+package com.sindurdevelopment.carmy.enginediagnostic;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "timestamp"
 })
 @Generated("jsonschema2pojo")
-public class EngineRunning {
+public class OilPressure {
 
     @JsonProperty("value")
     private String value;

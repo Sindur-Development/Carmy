@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     System.out.println(vehicleManager.getTemperature());
                 } catch (Exception e) {
-                    System.out.println("Fel30 (skapa vehicleList): " + e);
+                    System.out.println("Fel45 (temp): " + e);
                 }
             }
         });
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         accessibiltyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
-                    System.out.println(vehicleManager.getVehicleInformation());
+                    vehicleManager.engineDiagnostic();
                 } catch (Exception e) {
                     System.out.println("Fel56 (Vehicle information): " + e);
                 }
