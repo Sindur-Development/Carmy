@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button accessibiltyButton = (Button) findViewById(R.id.accessibility);
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        accessibiltyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
-                    System.out.println(vehicleManager.getTemperature());
+                    System.out.println(vehicleManager.getVehicleInformation());
                 } catch (Exception e) {
                     System.out.println("Fel30 (skapa vehicleList): " + e);
                 }

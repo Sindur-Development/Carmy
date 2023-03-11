@@ -31,9 +31,9 @@ public class VehicleManager {
         return (String) responseexternalTemp.get("value");
     }
 
-    public Boolean getAcessibility() throws MalformedURLException {
+    public Boolean getVehicleInformation() throws MalformedURLException {
         LinkedTreeMap response =
-                httpRequest(new URL("https://api.volvocars.com/connected-vehicle/v1/vehicles/"+currentVehicle.getVIN()+"/command-accessibility"));
+                httpRequest(new URL("https://api.volvocars.com/connected-vehicle/v1/vehicles/"+currentVehicle.getVIN()+"/engine"));
         LinkedTreeMap responseData = (LinkedTreeMap) response.get("data");
         LinkedTreeMap responseexternalTemp = (LinkedTreeMap) responseData.get("externalTemp");
         return responseexternalTemp.get("value")!=null;
