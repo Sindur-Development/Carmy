@@ -2,55 +2,124 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/VehicleInformationLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textfield"
+        android:id="@+id/tempData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="231dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/vehicleList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VehicleList"
+    <ImageView
+        android:id="@+id/v60_background"
+        android:layout_width="272dp"
+        android:layout_height="384dp"
+        android:alpha="0.8"
+        android:background="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/bg_black_v60" />
 
-    <Button
-        android:id="@+id/accessibility"
+    <ImageButton
+        android:id="@+id/preconditionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accessibility"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        android:layout_marginTop="228dp"
+        android:background="#000000"
+        android:scaleX="1.4"
+        android:scaleY="1.4"
+        app:layout_constraintBottom_toBottomOf="@+id/v60_background"
+        app:layout_constraintEnd_toStartOf="@+id/lockButton"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="@+id/v60_background"
+        app:layout_constraintTop_toBottomOf="@+id/tempData"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_lock_power_off" />
 
-    <Button
-        android:id="@+id/temp"
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/lockButton"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="216dp"
+        android:background="#000000"
+        android:foregroundTint="#1885F6"
+        android:scaleX="1.4"
+        android:scaleY="1.4"
+        android:tint="#C9C3CF"
+        app:layout_constraintBottom_toBottomOf="@+id/v60_background"
+        app:layout_constraintEnd_toEndOf="@+id/v60_background"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="@+id/v60_background"
+        app:layout_constraintTop_toBottomOf="@+id/tempData"
+        app:layout_constraintVertical_bias="0.193"
+        app:srcCompat="@android:drawable/ic_lock_idle_lock" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:text="Temp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_gravity="bottom"
+        android:alpha="0.2"
+        android:background="#0C0C0C"
+        android:backgroundTintMode="add"
+        app:backgroundTint="#121212"
+        app:layout_constraintCircleRadius="10dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="675dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#040404"
+        android:scaleX="1.3"
+        android:scaleY="1.3"
+        app:srcCompat="@android:drawable/ic_menu_mapmode"
+        tools:layout_editor_absoluteX="190dp"
+        tools:layout_editor_absoluteY="685dp" />
+
+    <TextView
+        android:id="@+id/carNameTextView"
+        android:layout_width="93dp"
+        android:layout_height="33dp"
+        android:text="My V60"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/v60_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.221" />
+        app:layout_constraintVertical_bias="0.375" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="31dp"
+        android:layout_height="18dp"
+        android:text="-5°C"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="87dp" />
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mantorp |"
+        app:layout_constraintBottom_toTopOf="@+id/v60_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carNameTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
