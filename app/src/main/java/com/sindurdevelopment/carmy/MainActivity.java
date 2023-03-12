@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,18 +28,29 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
-        TextView tempData = findViewById(R.id.tempData);
-        Button vehicleInformationBTN = (Button) findViewById(R.id.vehicleInformation);
-        vehicleInformationBTN.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                try {
-                    vehicleManager = new VehicleManager();
-                    tempData.setText(vehicleManager.getTemperature());
-                } catch (Exception e) {
-                    System.out.println("Fel30 (skapa vehicleList): " + e);
-                }
-            }
-        });
+        try {
+            vehicleManager = new VehicleManager();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            vehicleManager.updateVehicle();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+//        TextView tempData = findViewById(R.id.tempData);
+//        Button vehicleInformationBTN = (Button) findViewById(R.id.vehicleInformation);
+//        vehicleInformationBTN.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                try {
+//                    vehicleManager = new VehicleManager();
+//                    tempData.setText(vehicleManager.getTemperature());
+//                } catch (Exception e) {
+//                    System.out.println("Fel30 (skapa vehicleList): " + e);
+//                }
+//            }
+//        });
 
 
     }
