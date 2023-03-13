@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.sindurdevelopment.carmy.databinding.FragmentCarInfoBinding;
+import com.sindurdevelopment.carmy.databinding.FragmentCarinfoBinding;
 
 public class CarInfoFragment extends Fragment {
 
-    private FragmentCarInfoBinding binding;
+    private FragmentCarinfoBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         CarInfoViewModel carInfoViewModel =
                 new ViewModelProvider(this).get(CarInfoViewModel.class);
 
-        binding = FragmentCarInfoBinding.inflate(inflater, container, false);
+        binding = FragmentCarinfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;

@@ -13,7 +13,7 @@ import com.sindurdevelopment.carmy.databinding.ActivityHomeBinding;
 public class Home extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
-    private VehicleManager vehicleManager;
+//    private VehicleManager vehicleManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_location, R.id.navigation_car_info)
+                R.id.navigation_home, R.id.navigation_location, R.id.navigation_car_info, R.id.navigation_account)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_home);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
