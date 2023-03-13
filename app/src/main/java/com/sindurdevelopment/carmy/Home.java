@@ -1,20 +1,22 @@
 package com.sindurdevelopment.carmy;
 
 import android.os.Bundle;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.os.StrictMode;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sindurdevelopment.carmy.databinding.ActivityHomeBinding;
+
+import java.io.IOException;
 
 public class Home extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
+    private VehicleManager vehicleManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,6 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_home);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-    }
 
+    }
 }

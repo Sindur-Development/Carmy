@@ -1,4 +1,4 @@
-package com.sindurdevelopment.carmy.ui.home;
+package com.sindurdevelopment.carmy.ui.location;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.sindurdevelopment.carmy.databinding.FragmentHomeBinding;
+import com.sindurdevelopment.carmy.databinding.FragmentLocationBinding;
 
-public class HomeFragment extends Fragment {
+public class LocationFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentLocationBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        LocationViewModel locationViewModel =
+                new ViewModelProvider(this).get(LocationViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentLocationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.carNameTextView;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.locationTextView;
+        locationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
