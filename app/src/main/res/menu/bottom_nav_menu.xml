@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/home"
-        android:enabled="true"
-        android:icon="@drawable/baseline_home_32"/>
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/baseline_home_32"
+        android:title="Home"/>
     <item
-        android:id="@+id/location"
-        android:enabled="true"
-        android:icon="@drawable/baseline_location_on_32"
-        />
+        android:id="@+id/navigation_location"
+        android:icon="@drawable/ic_location"
+        android:title="Location" />
     <item
-        android:id="@+id/car"
-        android:enabled="true"
-        android:icon="@drawable/baseline_directions_car_32"/>
+        android:id="@+id/navigation_car_info"
+        android:icon="@drawable/baseline_directions_car_32"
+        android:title="Car Info"/>
     <item
-        android:id="@+id/account"
-        android:enabled="true"
+        android:id="@+id/navigation_account"
         android:icon="@drawable/baseline_account_circle_32"
+        android:title="Account"
         />
 </menu>
