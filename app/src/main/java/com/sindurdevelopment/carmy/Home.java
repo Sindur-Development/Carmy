@@ -1,6 +1,8 @@
 package com.sindurdevelopment.carmy;
 
+import android.app.ActionBar;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -33,4 +35,5 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
     }
+
 }

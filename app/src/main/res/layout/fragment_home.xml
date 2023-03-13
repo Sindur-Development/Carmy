@@ -1,98 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000"
-    tools:context=".ui.home.HomeFragment">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/v60_background"
-        android:layout_width="272dp"
-        android:layout_height="384dp"
-        android:alpha="0.8"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/bg_black_v60" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment">
 
-    <ImageButton
-        android:id="@+id/lockButton"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:background="#000000"
-        android:foregroundTint="#1885F6"
-        android:scaleX="1.4"
-        android:scaleY="1.4"
-        app:layout_constraintBottom_toBottomOf="@+id/v60_background"
-        app:layout_constraintEnd_toEndOf="@+id/v60_background"
-        app:layout_constraintHorizontal_bias="0.762"
-        app:layout_constraintStart_toStartOf="@+id/v60_background"
-        app:layout_constraintTop_toTopOf="@+id/v60_background"
-        app:layout_constraintVertical_bias="0.94"
-        app:srcCompat="@android:drawable/ic_lock_idle_lock"
-        app:tint="#C9C3CF" />
 
-    <ImageButton
-        android:id="@+id/preconditionButton"
-        android:layout_width="38dp"
-        android:layout_height="31dp"
-        android:background="#000000"
-        android:scaleX="1.4"
-        android:scaleY="1.4"
-        app:layout_constraintBottom_toBottomOf="@+id/v60_background"
-        app:layout_constraintEnd_toStartOf="@+id/lockButton"
-        app:layout_constraintHorizontal_bias="0.407"
-        app:layout_constraintStart_toStartOf="@+id/v60_background"
-        app:layout_constraintTop_toTopOf="@+id/v60_background"
-        app:layout_constraintVertical_bias="0.933"
-        app:srcCompat="@android:drawable/ic_lock_power_off"
-        app:tint="#C8C2CE" />
+        <ImageView
+            android:id="@+id/v60_background"
+            android:layout_width="272dp"
+            android:layout_height="384dp"
+            android:alpha="0.8"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/bg_black_v60" />
 
-    <TextView
-        android:id="@+id/degreesTextView"
-        android:layout_width="31dp"
-        android:layout_height="18dp"
-        android:text="-5°C"
-        android:textColor="#C8C2CE"
-        app:layout_constraintBottom_toTopOf="@+id/v60_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.007"
-        app:layout_constraintStart_toEndOf="@+id/locationTextView"
-        app:layout_constraintTop_toTopOf="@+id/locationTextView"
-        app:layout_constraintVertical_bias="0.025" />
+        <ImageButton
+            android:id="@+id/lockButton"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="#000000"
+            android:foregroundTint="#1885F6"
+            android:scaleX="1.4"
+            android:scaleY="1.4"
+            app:layout_constraintBottom_toBottomOf="@+id/v60_background"
+            app:layout_constraintEnd_toEndOf="@+id/v60_background"
+            app:layout_constraintHorizontal_bias="0.762"
+            app:layout_constraintStart_toStartOf="@+id/v60_background"
+            app:layout_constraintTop_toTopOf="@+id/v60_background"
+            app:layout_constraintVertical_bias="0.94"
+            app:srcCompat="@android:drawable/ic_lock_idle_lock"
+            app:tint="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/carNameTextView"
-        android:layout_width="93dp"
-        android:layout_height="33dp"
-        android:foregroundTint="#C8C2CE"
-        android:text="My V60"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#C8C2CE"
-        app:layout_constraintBottom_toTopOf="@+id/v60_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        <ImageButton
+            android:id="@+id/preconditionButton"
+            android:layout_width="38dp"
+            android:layout_height="31dp"
+            android:background="#000000"
+            android:scaleX="1.4"
+            android:scaleY="1.4"
+            app:layout_constraintBottom_toBottomOf="@+id/v60_background"
+            app:layout_constraintEnd_toStartOf="@+id/lockButton"
+            app:layout_constraintHorizontal_bias="0.407"
+            app:layout_constraintStart_toStartOf="@+id/v60_background"
+            app:layout_constraintTop_toTopOf="@+id/v60_background"
+            app:layout_constraintVertical_bias="0.933"
+            app:srcCompat="@android:drawable/ic_lock_power_off"
+            app:tint="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/locationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mantorp |"
-        android:textColor="#C8C2CE"
-        app:layout_constraintBottom_toTopOf="@+id/v60_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carNameTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/degreesTextView"
+            android:layout_width="31dp"
+            android:layout_height="18dp"
+            android:text="-5°C"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/v60_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.007"
+            app:layout_constraintStart_toEndOf="@+id/locationTextView"
+            app:layout_constraintTop_toTopOf="@+id/locationTextView"
+            app:layout_constraintVertical_bias="0.025" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/carNameTextView"
+            android:layout_width="93dp"
+            android:layout_height="33dp"
+            android:text="My V60"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/v60_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.588" />
+
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mantorp |"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/v60_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.142"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carNameTextView"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
