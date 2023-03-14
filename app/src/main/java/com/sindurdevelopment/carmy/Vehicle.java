@@ -2,6 +2,9 @@ package com.sindurdevelopment.carmy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Vehicle {
 
     private String name;

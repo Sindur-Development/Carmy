@@ -3,6 +3,8 @@ package com.sindurdevelopment.carmy.ui.location;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.sindurdevelopment.carmy.Home;
 import com.sindurdevelopment.carmy.R;
 import com.sindurdevelopment.carmy.databinding.FragmentLocationBinding;
 import org.osmdroid.api.IMapController;
@@ -23,15 +26,23 @@ import org.osmdroid.views.MapView;
 
 import java.util.ArrayList;
 
-public class LocationFragment extends Fragment {
+public class LocationFragment extends Fragment implements Parcelable {
 
     private FragmentLocationBinding binding;
 
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
+    private static final String DESCRIBABLE_KEY = "describable_key";
+
+    private double[] carPosition;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        carPosition = Home.getGPSCordinates();
+
         LocationViewModel locationViewModel =
                 new ViewModelProvider(this).get(LocationViewModel.class);
 
@@ -54,7 +65,7 @@ public class LocationFragment extends Fragment {
         map.setMultiTouchControls(true);
         IMapController mapController = map.getController();
         mapController.setZoom(9.5);
-        GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
+        GeoPoint startPoint = new GeoPoint(carPosition[0], carPosition[1]);
         mapController.setCenter(startPoint);
 
         requestPermissionsIfNecessary(new String[]{
@@ -71,8 +82,6 @@ public class LocationFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
 
     @Override
     public void onResume() {
@@ -124,5 +133,15 @@ public class LocationFragment extends Fragment {
                     permissionsToRequest.toArray(new String[0]),
                     REQUEST_PERMISSIONS_REQUEST_CODE);
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+
     }
 }
