@@ -2,7 +2,8 @@ plugins {
     id 'com.android.application'
 }
 
-android {
+
+    android {
     namespace 'com.sindurdevelopment.carmy'
     compileSdk 33
 
@@ -33,6 +34,7 @@ android {
 
 dependencies {
 
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
             because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
@@ -41,6 +43,7 @@ dependencies {
             because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
         }
     }
+    implementation 'org.osmdroid:osmdroid-android:6.1.13'
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
