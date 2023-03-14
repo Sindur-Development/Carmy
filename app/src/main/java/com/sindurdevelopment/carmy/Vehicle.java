@@ -1,41 +1,25 @@
 package com.sindurdevelopment.carmy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic;
+import com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel;
+import com.sindurdevelopment.carmy.responsemodels.temperature.Temperature;
 
-import org.parceler.Parcel;
 
-@Parcel
 public class Vehicle {
 
     private String name;
     private String VIN;
 
-    @JsonProperty("engineRunning")
-    private String engineRunning;
+    private EngineDiagnostic engineDiagnostic;
 
-    @JsonProperty("oilPressure")
-    private String oilPressure;
+    private FuelLevel fuelLevel;
 
-    @JsonProperty("oilLevel")
-    private String oilLevel;
-
-    @JsonProperty("engineCoolantLevel")
-    private String engineCoolantLevel;
-
-    @JsonProperty("engineCoolantTemp")
-    private int engineCoolantTemp;
+    private Temperature temperature;
 
     public Vehicle(String VIN) {
         this.VIN = VIN;
         name="";
-    }
-
-    public Vehicle(String engineRunning, String oilPressure, String oilLevel, String engineCoolantLevel, int engineCoolantTemp) {
-        this.engineRunning = engineRunning;
-        this.oilPressure = oilPressure;
-        this.oilLevel = oilLevel;
-        this.engineCoolantLevel = engineCoolantLevel;
-        this.engineCoolantTemp = engineCoolantTemp;
     }
 
     public Vehicle(String name, String VIN) {
@@ -59,43 +43,27 @@ public class Vehicle {
         this.VIN = VIN;
     }
 
-    private String getEngineRunning() {
-        return engineRunning;
+    public EngineDiagnostic getEngineDiagnostic() {
+        return engineDiagnostic;
     }
 
-    private void setEngineRunning(String engineRunning) {
-        this.engineRunning = engineRunning;
+    public void setEngineDiagnostic(EngineDiagnostic engineDiagnostic) {
+        this.engineDiagnostic = engineDiagnostic;
     }
 
-    private String getOilPressure() {
-        return oilPressure;
+    public FuelLevel getFuelLevel() {
+        return fuelLevel;
     }
 
-    private void setOilPressure(String oilPressure) {
-        this.oilPressure = oilPressure;
+    public void setFuelLevel(FuelLevel fuelLevel) {
+        this.fuelLevel = fuelLevel;
     }
 
-    private String getOilLevel() {
-        return oilLevel;
+    public Temperature getTemperature() {
+        return temperature;
     }
 
-    private void setOilLevel(String oilLevel) {
-        this.oilLevel = oilLevel;
-    }
-
-    private String getEngineCoolantLevel() {
-        return engineCoolantLevel;
-    }
-
-    private void setEngineCoolantLevel(String engineCoolantLevel) {
-        this.engineCoolantLevel = engineCoolantLevel;
-    }
-
-    private int getEngineCoolantTemp() {
-        return engineCoolantTemp;
-    }
-
-    private void setEngineCoolantTemp(int engineCoolantTemp) {
-        this.engineCoolantTemp = engineCoolantTemp;
+    public void setTemperature(Temperature temperature) {
+        this.temperature = temperature;
     }
 }

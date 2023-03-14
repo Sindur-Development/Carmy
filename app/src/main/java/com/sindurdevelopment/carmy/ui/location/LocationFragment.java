@@ -41,7 +41,7 @@ public class LocationFragment extends Fragment implements Parcelable {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        carPosition = Home.getGPSCordinates();
+        carPosition = new double[]{55.17755,15.1118558};
 
         LocationViewModel locationViewModel =
                 new ViewModelProvider(this).get(LocationViewModel.class);

@@ -13,9 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.sindurdevelopment.carmy.databinding.FragmentCarinfoBinding;
 
 public class CarInfoFragment extends Fragment {
-
     private FragmentCarinfoBinding binding;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         CarInfoViewModel carInfoViewModel =

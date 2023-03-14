@@ -4,13 +4,19 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.sindurdevelopment.carmy.VehicleManager;
+
+import java.io.IOException;
+
 public class CarInfoViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public CarInfoViewModel() {
+    public CarInfoViewModel() throws IOException {
+        VehicleManager.startVehicleManager();
+//        VehicleManager.updateEngineDiagnostic();
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+//        mText.setValue(VehicleManager.getCurrentVehicle().getEngineDiagnostic().toString());
     }
 
     public LiveData<String> getText() {
