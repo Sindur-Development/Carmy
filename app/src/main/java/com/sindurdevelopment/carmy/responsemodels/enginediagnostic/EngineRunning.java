@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @Generated("jsonschema2pojo")
 public class EngineRunning {
-
     @JsonProperty("value")
     private String value;
     @JsonProperty("timestamp")

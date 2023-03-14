@@ -10,7 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.sindurdevelopment.carmy.VehicleManager;
 import com.sindurdevelopment.carmy.databinding.FragmentCarinfoBinding;
+
+import org.w3c.dom.Text;
 
 public class CarInfoFragment extends Fragment {
     private FragmentCarinfoBinding binding;
@@ -22,7 +25,8 @@ public class CarInfoFragment extends Fragment {
         binding = FragmentCarinfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
+
+        TextView textView = binding.textView1;
         carInfoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

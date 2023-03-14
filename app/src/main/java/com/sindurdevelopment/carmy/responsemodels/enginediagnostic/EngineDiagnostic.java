@@ -28,16 +28,6 @@ public class EngineDiagnostic {
     private Data data;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
-
-    @Override
-    public String toString() {
-        return "EngineDiagnostic{" +
-                "operationId='" + operationId + '\'' +
-                ", data=" + data +
-                ", additionalProperties=" + additionalProperties +
-                '}';
-    }
-
     @JsonProperty("status")
     public Integer getStatus() {
         return status;
