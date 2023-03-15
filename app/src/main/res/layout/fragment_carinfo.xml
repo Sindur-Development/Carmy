@@ -5,19 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
+    android:theme="@style/Theme.Carmy"
     tools:context=".ui.carinfo.CarInfoFragment">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="211dp"
-        android:layout_height="91dp"
-        android:text="TextView"
-        android:textColor="#FDFDFD"
-        android:textSize="34sp"
+    <ImageView
+        android:id="@+id/carInfoBgImageView"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="468dp"
+        android:contentDescription="v60 head lights"
+        android:scaleType="fitXY"
+        android:src="@drawable/v60CarInfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/carNameTextView"
+        android:layout_width="132dp"
+        android:layout_height="32dp"
+        android:text="My V60"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <TextView
+        android:id="@+id/modelInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016 | V60"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/carNameTextView"
+        app:layout_constraintEnd_toEndOf="@+id/carNameTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/carNameTextView"
+        app:layout_constraintTop_toTopOf="@+id/carInfoBgImageView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/MaintenanceHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="289dp"
+        android:layout_marginBottom="432dp"
+        android:text="Maintenance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carInfoBgImageView"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
