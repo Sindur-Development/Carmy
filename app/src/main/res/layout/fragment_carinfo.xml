@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/carinfoConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
@@ -9,7 +10,7 @@
     tools:context=".ui.carinfo.CarInfoFragment">
 
     <ImageView
-        android:id="@+id/carInfoBgImageView"
+        android:id="@+id/carInfoBg"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_marginTop="3dp"
@@ -25,10 +26,26 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/carNameTextView"
+        android:id="@+id/modelInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016 | V60"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/carName"
+        app:layout_constraintEnd_toEndOf="@+id/carName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/carName"
+        app:layout_constraintTop_toTopOf="@+id/carInfoBg"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/carName"
         android:layout_width="132dp"
         android:layout_height="32dp"
+        android:fontFamily="sans-serif"
         android:text="My V60"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="#FFFFFF"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,32 +56,184 @@
         app:layout_constraintVertical_bias="0.075" />
 
     <TextView
-        android:id="@+id/modelInfoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2016 | V60"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/carNameTextView"
-        app:layout_constraintEnd_toEndOf="@+id/carNameTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/carNameTextView"
-        app:layout_constraintTop_toTopOf="@+id/carInfoBgImageView"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/MaintenanceHeader"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="41dp"
+        android:id="@+id/maintenanceHeader"
+        android:layout_width="117dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="289dp"
         android:layout_marginBottom="432dp"
+        android:fontFamily="sans-serif-condensed-light"
         android:text="Maintenance"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carInfoBgImageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/carInfoBg"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/maintenanceStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Everything looks good"
+        android:textColor="#4463AA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/maintenanceHeader"
+        app:layout_constraintTop_toBottomOf="@+id/maintenanceHeader" />
+
+    <TextView
+        android:id="@+id/DrivingJournalHeader"
+        android:layout_width="117dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Driving journal"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/maintenanceStatus"
+        app:layout_constraintTop_toBottomOf="@+id/maintenanceStatus" />
+
+    <TextView
+        android:id="@+id/drivingJournalStatus"
+        android:layout_width="97dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Enabled"
+        android:textColor="#4463AA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/DrivingJournalHeader"
+        app:layout_constraintTop_toBottomOf="@+id/DrivingJournalHeader" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="#000000"
+        android:src="@android:drawable/ic_menu_manage"
+        app:layout_constraintEnd_toStartOf="@+id/maintenanceHeader"
+        app:layout_constraintTop_toTopOf="@+id/maintenanceHeader" />
+
+    <ImageButton
+        android:id="@+id/drivingJournalIcon"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:background="#000000"
+        android:src="?android:attr/actionModeFindDrawable"
+        android:tint="#989898"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/DrivingJournalHeader" />
+
+    <TextView
+        android:id="@+id/statisticsHeader"
+        android:layout_width="117dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Statistics"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/maintenanceStatus"
+        app:layout_constraintTop_toBottomOf="@+id/drivingJournalStatus" />
+
+    <ImageButton
+        android:id="@+id/statisticsIcon"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:background="#000000"
+        android:src="@android:drawable/ic_menu_agenda"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="@+id/statisticsHeader" />
+
+    <TextView
+        android:id="@+id/fuelConsumption"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="10,8 l/100 km"
+        android:textColor="#4463AA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/DrivingJournalHeader"
+        app:layout_constraintTop_toBottomOf="@+id/statisticsHeader" />
+
+    <TextView
+        android:id="@+id/descriptionFuelConsumption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average fuel consumption"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/fuelConsumption"
+        app:layout_constraintTop_toBottomOf="@+id/fuelConsumption" />
+
+    <TextView
+        android:id="@+id/odometerData"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="5014 km"
+        android:textColor="#4463AA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/DrivingJournalHeader"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionFuelConsumption" />
+
+    <TextView
+        android:id="@+id/descriptionOdometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Odometer"
+        android:textAppearance="@style/Base.TextAppearance.MaterialComponents.SubHeadline"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/odometerData"
+        app:layout_constraintTop_toBottomOf="@+id/odometerData" />
+
+    <TextView
+        android:id="@+id/ownersManualHeader"
+        android:layout_width="117dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Owner's manual"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/maintenanceStatus"
+        app:layout_constraintTop_toBottomOf="@+id/carDetailsHeader" />
+
+    <TextView
+        android:id="@+id/carDetailsHeader"
+        android:layout_width="117dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Car details"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/maintenanceStatus"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionOdometer" />
+
+    <ImageButton
+        android:id="@+id/carDetailsIcon"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="16dp"
+        android:background="#000000"
+        android:src="@drawable/baseline_directions_car_32"
+        app:layout_constraintEnd_toStartOf="@+id/carDetailsHeader"
+        app:layout_constraintTop_toBottomOf="@+id/statisticsIcon" />
+
+    <ImageButton
+        android:id="@+id/ownersManualIcon"
+        android:layout_width="39dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="16dp"
+        android:background="#000000"
+        android:src="@drawable/baseline_menu_book_24"
+        app:layout_constraintEnd_toStartOf="@+id/carDetailsHeader"
+        app:layout_constraintTop_toTopOf="@+id/ownersManualHeader" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
