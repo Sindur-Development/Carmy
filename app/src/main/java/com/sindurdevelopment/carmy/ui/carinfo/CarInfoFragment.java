@@ -26,8 +26,8 @@ public class CarInfoFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        TextView textView = binding.textView1;
-        carInfoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+//        TextView textView = binding.textView1;
+//        carInfoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
