@@ -1,4 +1,4 @@
-package com.sindurdevelopment.carmy;
+package com.sindurdevelopment.carmy.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic;

@@ -1,10 +1,6 @@
 package com.sindurdevelopment.carmy.ui.carinfo;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import com.sindurdevelopment.carmy.VehicleManager;
 
 import java.io.IOException;
 
