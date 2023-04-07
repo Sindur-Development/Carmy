@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import lombok.Getter;
@@ -43,7 +44,10 @@ public class VehicleManager {
 
     private com.sindurdevelopment.carmy.responsemodels.temperature.Temperature temperatureResponse;
     private ObjectMapper objectMapper = new ObjectMapper();;
-    private HttpRequest httpRequest;
+    private HttpRequest httpRequest = new HttpRequest();
+
+    public VehicleManager() throws MalformedURLException {
+    }
 
     public void startVehicleManager() throws IOException, InterruptedException {
         //TODO skapa lösning för flera VIN's
@@ -53,18 +57,18 @@ public class VehicleManager {
     }
 
 
-    public void updateVehicle() throws IOException, InterruptedException {
-        //get odometer todo
-        fuelLevelResponse = fuelLevel.getFuelLevel();
-        temperatureResponse = temperature.getTemperature();
-        engineDiagnosticResponse = engineDiagnostic.updateEngineDiagnostic();
-    }
+//    public void updateVehicle() throws IOException, InterruptedException {
+//        //get odometer todo
+//        fuelLevelResponse = fuelLevel.getFuelLevel();
+//        temperatureResponse = temperature.getTemperature();
+//        engineDiagnosticResponse = engineDiagnostic.updateEngineDiagnostic();
+//    }
 
 
 
     public void getAccountVehicleList() throws IOException, InterruptedException {
         vehicleList = (objectMapper.readValue(
-                httpRequest.createRequest(new URL("")),
+                httpRequest.createRequest(""),
                 VehicleList.class));
 
     }

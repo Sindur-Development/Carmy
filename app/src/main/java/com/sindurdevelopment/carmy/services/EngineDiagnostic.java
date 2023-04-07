@@ -10,6 +10,6 @@ public class EngineDiagnostic extends EndPoint {
 
     public com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic updateEngineDiagnostic() throws IOException, InterruptedException {
         return objectMapper.readValue(
-                httpRequest.createRequest(new URL(VIN + "/engine")), com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic.class);
+                httpRequest.createRequest(VIN + "/engine"), com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic.class);
     }
 }

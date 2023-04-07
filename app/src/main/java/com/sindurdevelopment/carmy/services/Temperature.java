@@ -21,8 +21,7 @@ public class Temperature extends EndPoint {
 
     public com.sindurdevelopment.carmy.responsemodels.temperature.Temperature getTemperature() throws IOException, InterruptedException {
         return objectMapper.readValue(
-                httpRequest.createRequest(new URL(
-                        VIN + "/environment")), com.sindurdevelopment.carmy.responsemodels.temperature.Temperature.class);
+                httpRequest.createRequest(VIN + "/environment"), com.sindurdevelopment.carmy.responsemodels.temperature.Temperature.class);
     }
 
 }

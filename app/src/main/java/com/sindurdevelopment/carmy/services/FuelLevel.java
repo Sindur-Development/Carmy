@@ -17,7 +17,7 @@ public class FuelLevel extends EndPoint {
 
     public com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel getFuelLevel() throws IOException, InterruptedException {
         return objectMapper.readValue(
-                httpRequest.createRequest(new URL(VIN +"/fuel")), com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel.class);
+                httpRequest.createRequest(VIN +"/fuel"), com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel.class);
 
     }
 }

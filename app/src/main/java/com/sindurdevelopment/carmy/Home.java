@@ -24,7 +24,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        vehicleManager = new VehicleManager();
+
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -39,6 +39,7 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         try {
+            vehicleManager = new VehicleManager();
             vehicleManager.startVehicleManager();
         } catch (IOException e) {
             throw new RuntimeException(e);
