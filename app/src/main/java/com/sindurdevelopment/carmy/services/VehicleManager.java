@@ -22,7 +22,7 @@ import lombok.Setter;
 public class VehicleManager {
 
     private Vehicle currentVehicle;
-    private VehicleList vehicleList;
+    private VehicleList vehicleList = new VehicleList();
 
     private EngineDiagnostic engineDiagnostic;
 
@@ -42,15 +42,14 @@ public class VehicleManager {
     private Temperature temperature;
 
     private com.sindurdevelopment.carmy.responsemodels.temperature.Temperature temperatureResponse;
-    private ObjectMapper objectMapper;
+    private ObjectMapper objectMapper = new ObjectMapper();;
     private HttpRequest httpRequest;
 
     public void startVehicleManager() throws IOException, InterruptedException {
-        objectMapper = new ObjectMapper();
         //TODO skapa lösning för flera VIN's
         getAccountVehicleList();
-        this.currentVehicle = (new Vehicle(vehicleList.getData().get(0).getVin()));
-        endPoint.VIN = currentVehicle.getVIN();
+//        currentVehicle = (new Vehicle(vehicleList.getData().get(0).getVin()));
+//        endPoint.VIN = currentVehicle.getVIN();
     }
 
 
@@ -64,7 +63,7 @@ public class VehicleManager {
 
 
     public void getAccountVehicleList() throws IOException, InterruptedException {
-        this.vehicleList = (objectMapper.readValue(
+        vehicleList = (objectMapper.readValue(
                 httpRequest.createRequest(new URL("")),
                 VehicleList.class));
 
