@@ -13,7 +13,7 @@ import lombok.Setter;
 public class EndPoint {
     public ObjectMapper objectMapper = new ObjectMapper();
     public  HttpRequest httpRequest = new HttpRequest();
-    public String VIN = "";
+    public static String VIN = "";
 
     public EndPoint() throws MalformedURLException {
     }

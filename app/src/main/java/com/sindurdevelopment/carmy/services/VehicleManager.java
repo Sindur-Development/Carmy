@@ -25,24 +25,23 @@ public class VehicleManager {
     private Vehicle currentVehicle;
     private VehicleList vehicleList = new VehicleList();
 
-    private EngineDiagnostic engineDiagnostic;
+    private EngineDiagnostic engineDiagnostic = new EngineDiagnostic();
 
     private com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic engineDiagnosticResponse;
 
-    private FuelLevel fuelLevel;
+    private FuelLevel fuelLevel = new FuelLevel();
 
-    private com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel fuelLevelResponse;
+    private com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel fuelLevelResponse = new com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel();
 
     // private Odometer odometer; fixa todo
 
     // private OdometerRepsonse todo
 
-    private Statistic statistic;
+    private Statistic statistic = new Statistic();
 
-    private EndPoint endPoint;
-    private Temperature temperature;
+    private Temperature temperature = new Temperature();
 
-    private com.sindurdevelopment.carmy.responsemodels.temperature.Temperature temperatureResponse;
+    private com.sindurdevelopment.carmy.responsemodels.temperature.Temperature temperatureResponse = new com.sindurdevelopment.carmy.responsemodels.temperature.Temperature();
     private ObjectMapper objectMapper = new ObjectMapper();;
     private HttpRequest httpRequest = new HttpRequest();
 
@@ -52,17 +51,18 @@ public class VehicleManager {
     public void startVehicleManager() throws IOException, InterruptedException {
         //TODO skapa lösning för flera VIN's
         getAccountVehicleList();
-//        currentVehicle = (new Vehicle(vehicleList.getData().get(0).getVin()));
-//        endPoint.VIN = currentVehicle.getVIN();
+        this.currentVehicle = (new Vehicle(vehicleList.getData().get(0).getVin()));
+        EndPoint.VIN = currentVehicle.getVIN();
+        updateVehicle();
     }
 
 
-//    public void updateVehicle() throws IOException, InterruptedException {
-//        //get odometer todo
-//        fuelLevelResponse = fuelLevel.getFuelLevel();
-//        temperatureResponse = temperature.getTemperature();
-//        engineDiagnosticResponse = engineDiagnostic.updateEngineDiagnostic();
-//    }
+    public void updateVehicle() throws IOException, InterruptedException {
+        //get odometer todo
+        fuelLevelResponse = fuelLevel.getFuelLevel();
+        temperatureResponse = temperature.getTemperature();
+        engineDiagnosticResponse = engineDiagnostic.updateEngineDiagnostic();
+    }
 
 
 
