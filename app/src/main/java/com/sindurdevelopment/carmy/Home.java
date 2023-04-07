@@ -3,6 +3,8 @@ package com.sindurdevelopment.carmy;
 import android.os.Bundle;
 import android.view.Window;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -12,15 +14,16 @@ import com.sindurdevelopment.carmy.databinding.ActivityHomeBinding;
 import com.sindurdevelopment.carmy.services.VehicleManager;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 public class Home extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
-
     private VehicleManager vehicleManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
@@ -41,6 +44,8 @@ public class Home extends AppCompatActivity {
         try {
             vehicleManager = new VehicleManager();
             vehicleManager.startVehicleManager();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
@@ -48,5 +53,6 @@ public class Home extends AppCompatActivity {
         }
 
     }
-
 }
+
+

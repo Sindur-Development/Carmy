@@ -1,6 +1,11 @@
 package com.sindurdevelopment.carmy.services;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sindurdevelopment.carmy.entities.Vehicle;
 import com.sindurdevelopment.carmy.httprequest.HttpRequest;
@@ -17,10 +22,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-@Getter @Setter
-@NoArgsConstructor
-public class VehicleManager {
+@Getter
+@Setter
+public class VehicleManager implements Parcelable {
 
     private Vehicle currentVehicle;
     private VehicleList vehicleList = new VehicleList();
@@ -48,6 +52,25 @@ public class VehicleManager {
     public VehicleManager() throws MalformedURLException {
     }
 
+    protected VehicleManager(Parcel in) throws MalformedURLException {
+    }
+
+    public static final Creator<VehicleManager> CREATOR = new Creator<VehicleManager>() {
+        @Override
+        public VehicleManager createFromParcel(Parcel in) {
+            try {
+                return new VehicleManager(in);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        @Override
+        public VehicleManager[] newArray(int size) {
+            return new VehicleManager[size];
+        }
+    };
+
     public void startVehicleManager() throws IOException, InterruptedException {
         //TODO skapa lösning för flera VIN's
         getAccountVehicleList();
@@ -74,7 +97,100 @@ public class VehicleManager {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+    }
 
+    public Vehicle getCurrentVehicle() {
+        return currentVehicle;
+    }
 
+    public void setCurrentVehicle(Vehicle currentVehicle) {
+        this.currentVehicle = currentVehicle;
+    }
+
+    public VehicleList getVehicleList() {
+        return vehicleList;
+    }
+
+    public void setVehicleList(VehicleList vehicleList) {
+        this.vehicleList = vehicleList;
+    }
+
+    public EngineDiagnostic getEngineDiagnostic() {
+        return engineDiagnostic;
+    }
+
+    public void setEngineDiagnostic(EngineDiagnostic engineDiagnostic) {
+        this.engineDiagnostic = engineDiagnostic;
+    }
+
+    public com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic getEngineDiagnosticResponse() {
+        return engineDiagnosticResponse;
+    }
+
+    public void setEngineDiagnosticResponse(com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic engineDiagnosticResponse) {
+        this.engineDiagnosticResponse = engineDiagnosticResponse;
+    }
+
+    public FuelLevel getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public void setFuelLevel(FuelLevel fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
+
+    public com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel getFuelLevelResponse() {
+        return fuelLevelResponse;
+    }
+
+    public void setFuelLevelResponse(com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel fuelLevelResponse) {
+        this.fuelLevelResponse = fuelLevelResponse;
+    }
+
+    public Statistic getStatistic() {
+        return statistic;
+    }
+
+    public void setStatistic(Statistic statistic) {
+        this.statistic = statistic;
+    }
+
+    public Temperature getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Temperature temperature) {
+        this.temperature = temperature;
+    }
+
+    public com.sindurdevelopment.carmy.responsemodels.temperature.Temperature getTemperatureResponse() {
+        return temperatureResponse;
+    }
+
+    public void setTemperatureResponse(com.sindurdevelopment.carmy.responsemodels.temperature.Temperature temperatureResponse) {
+        this.temperatureResponse = temperatureResponse;
+    }
+
+    public ObjectMapper getObjectMapper() {
+        return objectMapper;
+    }
+
+    public void setObjectMapper(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
+    public HttpRequest getHttpRequest() {
+        return httpRequest;
+    }
+
+    public void setHttpRequest(HttpRequest httpRequest) {
+        this.httpRequest = httpRequest;
+    }
 }
