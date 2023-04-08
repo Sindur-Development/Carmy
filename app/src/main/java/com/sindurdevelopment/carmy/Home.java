@@ -41,9 +41,10 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+
+
         try {
-            vehicleManager = new VehicleManager();
-            vehicleManager.startVehicleManager();
+            VehicleManager.startVehicleManager();
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

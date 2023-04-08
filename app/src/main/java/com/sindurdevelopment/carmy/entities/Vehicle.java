@@ -1,17 +1,11 @@
 package com.sindurdevelopment.carmy.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sindurdevelopment.carmy.responsemodels.enginediagnostic.EngineDiagnostic;
-import com.sindurdevelopment.carmy.responsemodels.fuellevel.FuelLevel;
-import com.sindurdevelopment.carmy.responsemodels.temperature.Temperature;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import androidx.annotation.NonNull;
 
-
-@Getter @Setter @NoArgsConstructor
-public class Vehicle {
+public class Vehicle implements Parcelable {
 
     private String name;
     private String VIN;
@@ -25,6 +19,23 @@ public class Vehicle {
         this.VIN = VIN;
     }
 
+
+    protected Vehicle(Parcel in) {
+        name = in.readString();
+        VIN = in.readString();
+    }
+
+    public static final Creator<Vehicle> CREATOR = new Creator<Vehicle>() {
+        @Override
+        public Vehicle createFromParcel(Parcel in) {
+            return new Vehicle(in);
+        }
+
+        @Override
+        public Vehicle[] newArray(int size) {
+            return new Vehicle[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -43,6 +54,14 @@ public class Vehicle {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(VIN);
+    }
 }
