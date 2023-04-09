@@ -1,17 +1,21 @@
 package com.sindurdevelopment.carmy.services;
 
+import com.sindurdevelopment.carmy.httprequest.HttpRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class Temperature extends EndPoint {
 
-
     public Temperature() throws MalformedURLException {
     }
 
-    public com.sindurdevelopment.carmy.responsemodels.temperature.Temperature getTemperature() throws IOException, InterruptedException {
-        return objectMapper.readValue(
-                httpRequest.createRequest(VIN + "/environment"), com.sindurdevelopment.carmy.responsemodels.temperature.Temperature.class);
+    public static String getTemperature() throws IOException, InterruptedException, JSONException {
+        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/environment"));
+        return json.getJSONObject("data").getJSONObject("externalTemp").getString("value");
     }
 
 }

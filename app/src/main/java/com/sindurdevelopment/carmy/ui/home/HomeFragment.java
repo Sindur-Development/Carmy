@@ -22,9 +22,6 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-    public HomeFragment() throws MalformedURLException {
-    }
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
@@ -32,6 +29,9 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        final TextView externalTemp = binding.degreesTextView;
+        homeViewModel.getData().observe(getViewLifecycleOwner(), externalTemp::setText);
 
         return root;
     }
