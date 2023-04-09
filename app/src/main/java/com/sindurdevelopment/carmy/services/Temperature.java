@@ -15,7 +15,7 @@ public class Temperature extends EndPoint {
 
     public static String getTemperature() throws IOException, InterruptedException, JSONException {
         JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/environment"));
-        return json.getJSONObject("data").getJSONObject("externalTemp").getString("value");
+        return json.getJSONObject("data").getJSONObject("externalTemp").getString("value")+"°";
     }
 
 }
