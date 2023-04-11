@@ -16,8 +16,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.sindurdevelopment.carmy.databinding.FragmentHomeBinding;
+import com.sindurdevelopment.carmy.services.Odometer;
 import com.sindurdevelopment.carmy.services.VehicleManager;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class HomeFragment extends Fragment {
@@ -38,9 +42,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity() , "External temperature reported by vehicle" , Toast.LENGTH_SHORT).show();
-            }
 
-        });
+        }});
 
         return root;
     }
