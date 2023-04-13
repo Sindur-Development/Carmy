@@ -1,6 +1,7 @@
-package com.sindurdevelopment.carmy.services;
+package com.sindurdevelopment.carmy.services.status;
 
 import com.sindurdevelopment.carmy.httprequest.HttpRequest;
+import com.sindurdevelopment.carmy.services.EndPoint;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

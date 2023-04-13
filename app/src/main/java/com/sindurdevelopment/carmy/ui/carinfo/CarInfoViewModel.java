@@ -4,15 +4,19 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.sindurdevelopment.carmy.services.status.Odometer;
+
+import org.json.JSONException;
+
 import java.io.IOException;
 
 public class CarInfoViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public CarInfoViewModel() {
+    public CarInfoViewModel() throws JSONException, IOException, InterruptedException {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue(Odometer.getOdometer());
     }
 
 

@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.sindurdevelopment.carmy.databinding.FragmentCarinfoBinding;
-import com.sindurdevelopment.carmy.services.Commands;
+import com.sindurdevelopment.carmy.services.status.Doors;
+import com.sindurdevelopment.carmy.services.status.Windows;
 
 import org.json.JSONException;
 
@@ -35,7 +36,7 @@ public class CarInfoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-                    Toast.makeText(getActivity() , Commands.getCommands(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity() , Windows.getWindowStatus(), Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 } catch (JSONException e) {

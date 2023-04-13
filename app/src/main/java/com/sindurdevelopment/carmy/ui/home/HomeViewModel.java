@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.sindurdevelopment.carmy.services.Temperature;
+import com.sindurdevelopment.carmy.services.status.Temperature;
 import com.sindurdevelopment.carmy.services.VehicleManager;
 import org.json.JSONException;
 import java.io.IOException;
