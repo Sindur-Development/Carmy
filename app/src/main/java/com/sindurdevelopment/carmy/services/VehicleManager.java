@@ -1,12 +1,9 @@
 package com.sindurdevelopment.carmy.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sindurdevelopment.carmy.entities.Vehicle;
 import com.sindurdevelopment.carmy.httprequest.HttpRequest;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 

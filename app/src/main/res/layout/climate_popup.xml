@@ -22,7 +22,6 @@
         android:autoText="false"
         android:ems="10"
         android:hint="Start Time"
-        android:inputType="date"
-        android:onClick="showTimePickerDialog" />
+        android:inputType="date" />
 
 </LinearLayout>

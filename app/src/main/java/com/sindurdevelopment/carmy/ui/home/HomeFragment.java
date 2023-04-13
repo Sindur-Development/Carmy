@@ -1,5 +1,6 @@
 package com.sindurdevelopment.carmy.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +10,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.sindurdevelopment.carmy.ClimatePopup;
 import com.sindurdevelopment.carmy.databinding.FragmentHomeBinding;
+import com.sindurdevelopment.carmy.services.commands.LockDoors;
+import org.json.JSONException;
+import java.io.IOException;
 
 public class HomeFragment extends Fragment {
 
@@ -40,17 +44,30 @@ public class HomeFragment extends Fragment {
         precondition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog();
+                startActivity(new Intent(getActivity(), ClimatePopup.class));
+            }
+        });
+
+        final ImageButton lockBtn = binding.lockButton;
+        lockBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Toast.makeText(getActivity(),LockDoors.lockDoors(),Toast.LENGTH_SHORT);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
         });
 
         return root;
     }
 
-    private void openDialog() {
-        ClimateDialog climateDialog = new ClimateDialog();
-        climateDialog.show(getParentFragmentManager(),"ClimateDialog");
-    }
 
     @Override
     public void onDestroyView() {

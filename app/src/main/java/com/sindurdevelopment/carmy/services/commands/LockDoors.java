@@ -15,8 +15,9 @@ public class LockDoors extends EndPoint {
     }
 
     public static String lockDoors() throws IOException, InterruptedException, JSONException {
-        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/commands/lock","Post"));
-        return json.getJSONObject("async").getString("status");
+//        JSONObject json = new JSONObject(
+        HttpRequest.createRequest(VIN + "/commands/lock","Post");
+        return "";//json.getJSONObject("async").getString("status");
     }
 
 }
