@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -34,7 +36,20 @@ public class HomeFragment extends Fragment {
 
         }});
 
+        final ImageButton precondition = binding.preconditionButton;
+        precondition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+            }
+        });
+
         return root;
+    }
+
+    private void openDialog() {
+        ClimateDialog climateDialog = new ClimateDialog();
+        climateDialog.show(getParentFragmentManager(),"ClimateDialog");
     }
 
     @Override
