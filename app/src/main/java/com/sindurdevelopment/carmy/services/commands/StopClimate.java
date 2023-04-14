@@ -15,7 +15,7 @@ public class StopClimate extends EndPoint {
     }
 
     public static String stopClimate() throws IOException, InterruptedException, JSONException {
-        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/commands/climatization-stop","Post"));
+        JSONObject json = new JSONObject(HttpRequest.createHttpPost(VIN + "/commands/climatization-stop",""));
         return json.getJSONObject("async").getString("status");
     }
 

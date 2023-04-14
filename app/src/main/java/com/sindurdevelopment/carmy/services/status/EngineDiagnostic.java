@@ -11,6 +11,6 @@ public class EngineDiagnostic extends EndPoint {
     }
 
     public String updateEngineDiagnostic() throws IOException, InterruptedException {
-        return HttpRequest.createRequest(VIN + "/engine");
+        return HttpRequest.createGetRequest(VIN + "/engine");
     }
 }

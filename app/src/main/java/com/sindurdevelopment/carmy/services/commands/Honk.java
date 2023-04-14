@@ -4,19 +4,18 @@ import com.sindurdevelopment.carmy.httprequest.HttpRequest;
 import com.sindurdevelopment.carmy.services.EndPoint;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-public class LockDoors extends EndPoint {
+public class Honk extends EndPoint {
 
-    public LockDoors() throws MalformedURLException {
+    public Honk() throws MalformedURLException {
     }
 
-    public static String lockDoors() throws IOException, InterruptedException, JSONException {
+    public static String honk() throws IOException, InterruptedException, JSONException {
 //        JSONObject json = new JSONObject(
-        HttpRequest.createHttpPost(VIN + "/commands/lock","");
+        HttpRequest.createHttpPost(VIN + "/commands/honk","");
         return "";//json.getJSONObject("async").getString("status");
     }
 

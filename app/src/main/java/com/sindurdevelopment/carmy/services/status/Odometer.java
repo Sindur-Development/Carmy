@@ -14,7 +14,7 @@ public class Odometer extends EndPoint {
     }
 
     public static String getOdometer() throws IOException, JSONException, InterruptedException {
-        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/odometer"));
+        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN + "/odometer"));
         return getOdometerValue(json)+" " +getOdometerUnit(json);
     }
 

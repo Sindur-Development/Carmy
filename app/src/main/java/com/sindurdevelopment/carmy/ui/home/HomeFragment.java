@@ -15,7 +15,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.sindurdevelopment.carmy.ClimatePopup;
 import com.sindurdevelopment.carmy.databinding.FragmentHomeBinding;
+import com.sindurdevelopment.carmy.services.commands.Honk;
 import com.sindurdevelopment.carmy.services.commands.LockDoors;
+import com.sindurdevelopment.carmy.services.commands.UnlockDoors;
+
 import org.json.JSONException;
 import java.io.IOException;
 
@@ -53,7 +56,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-                    Toast.makeText(getActivity(),LockDoors.lockDoors(),Toast.LENGTH_SHORT);
+                    Toast.makeText(getActivity(), Honk.honk(),Toast.LENGTH_SHORT);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 } catch (InterruptedException e) {

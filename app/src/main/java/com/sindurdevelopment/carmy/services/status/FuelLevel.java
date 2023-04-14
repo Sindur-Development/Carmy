@@ -12,7 +12,7 @@ public class FuelLevel extends EndPoint {
     }
 
     public String getFuelLevel() throws IOException, InterruptedException {
-        return HttpRequest.createRequest(VIN +"/fuel");
+        return HttpRequest.createGetRequest(VIN +"/fuel");
 
     }
 }

@@ -15,7 +15,7 @@ public class Doors extends EndPoint {
     }
 
     public static String getDoorStatus() throws IOException, JSONException, InterruptedException {
-        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/doors"));
+        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN + "/doors"));
         return json.getJSONObject("data").toString();
     }
 

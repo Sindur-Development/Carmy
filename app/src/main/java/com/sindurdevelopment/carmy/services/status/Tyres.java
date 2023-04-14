@@ -15,7 +15,7 @@ public class Tyres extends EndPoint {
     }
 
     public static String getTyresStatus() throws IOException, JSONException, InterruptedException {
-        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/tyres"));
+        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN + "/tyres"));
         return json.getJSONObject("data").toString();
     }
 

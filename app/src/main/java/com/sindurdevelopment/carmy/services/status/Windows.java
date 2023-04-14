@@ -15,7 +15,7 @@ public class Windows extends EndPoint {
     }
 
     public static String getWindowStatus() throws IOException, JSONException, InterruptedException {
-        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/windows"));
+        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN + "/windows"));
         return json.getJSONObject("data").toString();
     }
 

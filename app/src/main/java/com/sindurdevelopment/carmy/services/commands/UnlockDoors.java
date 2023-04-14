@@ -15,7 +15,7 @@ public class UnlockDoors extends EndPoint {
     }
 
     public static String unlockDoors() throws IOException, InterruptedException, JSONException {
-        JSONObject json = new JSONObject(HttpRequest.createRequest(VIN + "/commands/unlock","Post","120"));
+        JSONObject json = new JSONObject(HttpRequest.createHttpPost(VIN + "/commands/unlock","{\"unlockDuration\":120}"));
         return json.getJSONObject("async").getString("status");
     }
 

@@ -34,7 +34,7 @@ public class VehicleManager {
 
 
     public static void setVehicleVIN() throws IOException, InterruptedException, JSONException {
-        json = new JSONObject(HttpRequest.createRequest(""));
+        json = new JSONObject(HttpRequest.createGetRequest(""));
         //fixa konto med flera bilar todo
         EndPoint.VIN = json.getJSONArray("data").getJSONObject(0).getString("vin");
     }
