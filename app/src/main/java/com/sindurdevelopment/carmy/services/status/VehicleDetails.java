@@ -10,12 +10,12 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 
-public class Windows extends EndPoint {
-    public Windows() throws MalformedURLException {
+public class VehicleDetails extends EndPoint {
+    public VehicleDetails() throws MalformedURLException {
     }
 
-    public static JSONObject getWindowStatus() throws IOException, JSONException, InterruptedException {
-        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN + "/windows"));
+    public static JSONObject getVehicleDetails() throws IOException, JSONException, InterruptedException {
+        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN,"vehicle"));
         return json;
     }
 

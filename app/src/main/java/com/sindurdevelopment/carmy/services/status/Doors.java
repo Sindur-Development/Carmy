@@ -14,9 +14,9 @@ public class Doors extends EndPoint {
     public Doors() throws MalformedURLException {
     }
 
-    public static String getDoorStatus() throws IOException, JSONException, InterruptedException {
+    public static JSONObject getDoorStatus() throws IOException, JSONException, InterruptedException {
         JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN + "/doors"));
-        return json.getJSONObject("data").toString();
+        return json;
     }
 
 }

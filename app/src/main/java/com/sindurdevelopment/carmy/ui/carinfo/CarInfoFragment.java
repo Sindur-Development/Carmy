@@ -35,15 +35,7 @@ public class CarInfoFragment extends Fragment {
         odometerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Toast.makeText(getActivity() , Windows.getWindowStatus(), Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                Toast.makeText(getActivity() , "Odometer details", Toast.LENGTH_SHORT).show();
             }
         });
 

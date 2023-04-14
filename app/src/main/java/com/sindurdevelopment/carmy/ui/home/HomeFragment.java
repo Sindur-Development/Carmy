@@ -1,11 +1,13 @@
 package com.sindurdevelopment.carmy.ui.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,12 +17,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.sindurdevelopment.carmy.ClimatePopup;
 import com.sindurdevelopment.carmy.databinding.FragmentHomeBinding;
-import com.sindurdevelopment.carmy.services.commands.Honk;
-import com.sindurdevelopment.carmy.services.commands.LockDoors;
 import com.sindurdevelopment.carmy.services.commands.UnlockDoors;
+import com.sindurdevelopment.carmy.services.status.SentCommandStatus;
+import com.sindurdevelopment.carmy.services.status.VehicleDetails;
 
 import org.json.JSONException;
+
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class HomeFragment extends Fragment {
 
@@ -35,7 +40,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView externalTemp = binding.degreesTextView;
-        homeViewModel.getData().observe(getViewLifecycleOwner(), externalTemp::setText);
+        homeViewModel.getTempData().observe(getViewLifecycleOwner(), externalTemp::setText);
         externalTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,17 +61,17 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-                    Toast.makeText(getActivity(), Honk.honk(),Toast.LENGTH_SHORT);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                } catch (JSONException e) {
+                    Toast.makeText(getActivity(), UnlockDoors.unlockDoors(),Toast.LENGTH_SHORT);
+                    Toast.makeText(getActivity(), SentCommandStatus.getSentCommandStatus(),Toast.LENGTH_SHORT);
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
 
             }
         });
+
+
+
 
         return root;
     }

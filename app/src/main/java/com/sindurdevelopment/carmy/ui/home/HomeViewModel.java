@@ -6,37 +6,30 @@ import androidx.lifecycle.ViewModel;
 
 import com.sindurdevelopment.carmy.services.status.Temperature;
 import com.sindurdevelopment.carmy.services.VehicleManager;
+import com.sindurdevelopment.carmy.services.status.VehicleDetails;
+
 import org.json.JSONException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 
 public class HomeViewModel extends ViewModel {
 
-    private final MutableLiveData<String> data;
-    private final String listData;
+    private final MutableLiveData<String> tempData;
+
 
     public HomeViewModel() throws IOException, InterruptedException, JSONException {
         try {
             VehicleManager.startVehicleManager();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
         }
 
-
-        listData = Temperature.getTemperature();
-
-        data = new MutableLiveData<>();
-        data.setValue(listData);
+        tempData = new MutableLiveData<>();
+        tempData.setValue(Temperature.getTemperature());
     }
 
-    public LiveData<String> getData() {
-        return data;
+
+    public LiveData<String> getTempData() {
+        return tempData;
     }
+
 }

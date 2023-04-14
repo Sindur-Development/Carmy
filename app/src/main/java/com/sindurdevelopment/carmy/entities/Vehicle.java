@@ -5,37 +5,56 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Vehicle implements Parcelable {
+import org.json.JSONObject;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+
+public class Vehicle {
 
     private String name;
     private String VIN;
+
+    private String lastCommandId;
+    private JSONObject doors;
+    private JSONObject windows;
+    private JSONObject odometer;
+    private JSONObject fuellevel;
+    private JSONObject vehicleDetails;
+
+    public void saveImage(String imageUrl, String destinationFile) throws IOException {
+        try {
+            URL url = new URL(imageUrl);
+            InputStream is = url.openStream();
+            OutputStream os = new FileOutputStream(destinationFile);
+
+            byte[] b = new byte[2048];
+            int length;
+
+            while ((length = is.read(b)) != -1) {
+                os.write(b, 0, length);
+            }
+
+            is.close();
+            os.close();
+        } catch (Exception e){
+            System.out.println("Error 44: " + e);
+        }
+    }
+
+
     public Vehicle(String VIN) {
         this.VIN = VIN;
-        name="";
+        name = "";
     }
 
     public Vehicle(String name, String VIN) {
         this.name = name;
         this.VIN = VIN;
     }
-
-
-    protected Vehicle(Parcel in) {
-        name = in.readString();
-        VIN = in.readString();
-    }
-
-    public static final Creator<Vehicle> CREATOR = new Creator<Vehicle>() {
-        @Override
-        public Vehicle createFromParcel(Parcel in) {
-            return new Vehicle(in);
-        }
-
-        @Override
-        public Vehicle[] newArray(int size) {
-            return new Vehicle[size];
-        }
-    };
 
     public String getName() {
         return name;
@@ -53,15 +72,51 @@ public class Vehicle implements Parcelable {
         this.VIN = VIN;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public JSONObject getDoors() {
+        return doors;
     }
 
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeString(VIN);
+    public void setDoors(JSONObject doors) {
+        this.doors = doors;
+    }
+
+    public JSONObject getWindows() {
+        return windows;
+    }
+
+    public void setWindows(JSONObject windows) {
+        this.windows = windows;
+    }
+
+    public JSONObject getOdometer() {
+        return odometer;
+    }
+
+    public void setOdometer(JSONObject odometer) {
+        this.odometer = odometer;
+    }
+
+    public JSONObject getFuellevel() {
+        return fuellevel;
+    }
+
+    public void setFuellevel(JSONObject fuellevel) {
+        this.fuellevel = fuellevel;
+    }
+
+    public String getLastCommandId() {
+        return lastCommandId;
+    }
+
+    public void setLastCommandId(String lastCommandId) {
+        this.lastCommandId = lastCommandId;
+    }
+
+    public JSONObject getVehicleDetails() {
+        return vehicleDetails;
+    }
+
+    public void setVehicleDetails(JSONObject vehicleDetails) {
+        this.vehicleDetails = vehicleDetails;
     }
 }
