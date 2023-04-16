@@ -17,10 +17,6 @@ public class VehicleManager {
     public static Vehicle currentVehicle;
     public static JSONObject json;
 
-    // private Odometer odometer; fixa todo
-
-    // private OdometerRepsonse todo
-
     public VehicleManager() throws MalformedURLException {
     }
 
@@ -35,14 +31,19 @@ public class VehicleManager {
 
     public static void updateVehicle() throws IOException, InterruptedException, JSONException {
 
-        //get odometer todo
         currentVehicle.setDoors(Doors.getDoorStatus());
         currentVehicle.setWindows(Windows.getWindowStatus());
         currentVehicle.setVehicleDetails(VehicleDetails.getVehicleDetails());
-        currentVehicle.saveImage(currentVehicle.getVehicleDetails()
-                .getJSONObject("data")
-                .getJSONObject("images")
-                .getString("exteriorDefaultUrl"),"../res/drawable/car_background.jpg");
+
+        // Todo fixa images
+//        currentVehicle.saveImage(currentVehicle.getVehicleDetails()
+//                .getJSONObject("data")
+//                .getJSONObject("images")
+//                .getString("exteriorDefaultUrl"),"../res/drawable/car_background_exterior.jpg");
+//        currentVehicle.saveImage(currentVehicle.getVehicleDetails()
+//                .getJSONObject("data")
+//                .getJSONObject("images")
+//                .getString("interiorDefaultUrl"),"../res/drawable/car_background_interior.jpg");
     }
 
 

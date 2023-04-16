@@ -1,5 +1,7 @@
 package com.sindurdevelopment.carmy.entities;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -25,24 +27,22 @@ public class Vehicle {
     private JSONObject fuellevel;
     private JSONObject vehicleDetails;
 
-    public void saveImage(String imageUrl, String destinationFile) throws IOException {
-        try {
-            URL url = new URL(imageUrl);
-            InputStream is = url.openStream();
-            OutputStream os = new FileOutputStream(destinationFile);
+    public void saveImage(String imageUrl, String destinationFile) throws IOException, InterruptedException {
+        if (imageUrl == "") return;
+        Thread thread = new Thread(new Runnable() {
 
-            byte[] b = new byte[2048];
-            int length;
-
-            while ((length = is.read(b)) != -1) {
-                os.write(b, 0, length);
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(imageUrl);
+                    Bitmap bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                } catch (Exception e) {
+                    System.out.println("Error 44: " + e);
+                }
             }
-
-            is.close();
-            os.close();
-        } catch (Exception e){
-            System.out.println("Error 44: " + e);
-        }
+        });
+        thread.start();
+        thread.join();
     }
 
 
