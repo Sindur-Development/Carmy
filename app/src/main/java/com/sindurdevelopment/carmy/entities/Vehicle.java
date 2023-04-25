@@ -2,17 +2,10 @@ package com.sindurdevelopment.carmy.entities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import androidx.annotation.NonNull;
 
 import org.json.JSONObject;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.URL;
 
 public class Vehicle {
@@ -20,7 +13,7 @@ public class Vehicle {
     private String name;
     private String VIN;
 
-    private String lastCommandId;
+    private String lastCommandRef;
     private JSONObject doors;
     private JSONObject windows;
     private JSONObject odometer;
@@ -104,12 +97,12 @@ public class Vehicle {
         this.fuellevel = fuellevel;
     }
 
-    public String getLastCommandId() {
-        return lastCommandId;
+    public String getLastCommandRef() {
+        return lastCommandRef;
     }
 
-    public void setLastCommandId(String lastCommandId) {
-        this.lastCommandId = lastCommandId;
+    public void setLastCommandRef(String lastCommandRef) {
+        this.lastCommandRef = lastCommandRef;
     }
 
     public JSONObject getVehicleDetails() {

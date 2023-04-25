@@ -14,18 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.sindurdevelopment.carmy.ClimatePopup;
 import com.sindurdevelopment.carmy.databinding.FragmentHomeBinding;
 import com.sindurdevelopment.carmy.services.commands.UnlockDoors;
 import com.sindurdevelopment.carmy.services.status.SentCommandStatus;
-import com.sindurdevelopment.carmy.services.status.VehicleDetails;
 
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class HomeFragment extends Fragment {
 
@@ -63,6 +56,7 @@ public class HomeFragment extends Fragment {
                 try {
                     Toast.makeText(getActivity(), UnlockDoors.unlockDoors(),Toast.LENGTH_SHORT);
                     Toast.makeText(getActivity(), SentCommandStatus.getSentCommandStatus(),Toast.LENGTH_SHORT);
+                    System.out.println(SentCommandStatus.getSentCommandStatus());
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

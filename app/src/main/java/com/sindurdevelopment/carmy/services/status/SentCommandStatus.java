@@ -15,16 +15,16 @@ public class SentCommandStatus extends EndPoint {
     }
 
     public static String getSentCommandStatus() throws IOException, InterruptedException, JSONException {
-        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VIN +"/requests/"+ VehicleManager.currentVehicle.getLastCommandId()));
+        JSONObject json = new JSONObject(HttpRequest.createGetRequest(VehicleManager.currentVehicle.getLastCommandRef().split("vehicles")[1],"requestdetailresponse"));
         return getCommand(json)+" "+getInvokeStatus(json);
     }
 
     private static String getInvokeStatus(JSONObject json) throws JSONException {
-        return json.getJSONObject("data").getString("invokeStatus");
+        return json.has("data") ? json.getJSONObject("data").getString("invokeStatus"): "No data available from server";
     }
 
     private static String getCommand(JSONObject json) throws JSONException {
-        return json.getJSONObject("data").getString("command");
+        return json.has("data") ? json.getJSONObject("data").getString("command"): "No data available from server";
     }
 
 }

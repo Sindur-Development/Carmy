@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 public class VehicleManager {
 
     public static Vehicle currentVehicle;
-    public static JSONObject json;
+    public static JSONObject vehiclelist;
 
     public VehicleManager() throws MalformedURLException {
     }
@@ -48,9 +48,9 @@ public class VehicleManager {
 
 
     public static void setVehicleVIN() throws IOException, InterruptedException, JSONException {
-        json = new JSONObject(HttpRequest.createGetRequest("","vehiclelist"));
+        vehiclelist = new JSONObject(HttpRequest.createGetRequest("","vehiclelist"));
         //fixa konto med flera bilar todo
-        currentVehicle = new Vehicle(json.getJSONArray("data").getJSONObject(0).getString("vin"));
+        currentVehicle = new Vehicle(vehiclelist.getJSONArray("data").getJSONObject(0).getString("vin"));
         EndPoint.VIN = currentVehicle.getVIN();
     }
 
